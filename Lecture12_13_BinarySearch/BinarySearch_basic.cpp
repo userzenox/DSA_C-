@@ -25,12 +25,12 @@ int binarysearch(int array[], int n ,int key){
             
         }
         else if( key < array[mid] ){
-            start = 0;
+         
             end = mid - 1;
         }   
          else if(key > array[mid] ){
             start = mid + 1;
-            end = n-1;
+           
         } 
       }
    return -1;
