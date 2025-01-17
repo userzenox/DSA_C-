@@ -1,0 +1,17 @@
+The book allocation problem is a classic example of a problem faced in computer science, particularly in the field of algorithms and optimization. The problem can be summarized as follows:
+
+Problem Statement: Given M books and N students, where each book has a certain number of pages, the goal is to allocate books to students such that the maximum number of pages assigned to any student is minimized. Each student must receive at least one book, and each book must be assigned to exactly one student. The allocation of books must be contiguous, meaning each student's assigned books should form a continuous segment of the list.
+
+Example:
+Let's consider an example to illustrate the problem. Suppose we have the following books with page numbers: [100, 200, 300, 400, 500] and 3 students. The objective is to allocate these books in such a way that the maximum number of pages assigned to any student is minimized.
+
+Possible allocations:
+
+Student 1: [100, 200] - Total pages: 300
+
+Student 2: [300] - Total pages: 300
+
+Student 3: [400, 500] - Total pages: 900
+
+In this case, the maximum number of pages assigned to any student is 900. However, this is not the optimal allocation. By exploring different allocations, we can find a distribution that minimizes the maximum pages more effectively.
+
