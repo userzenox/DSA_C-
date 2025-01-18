@@ -17,5 +17,5 @@ int main(){
      cout << "top element after pop - " << q.front() << endl;
 
    cout << "Size of stack -  "  << q.size() << endl;
-
+    
 }
