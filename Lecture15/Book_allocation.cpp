@@ -45,6 +45,7 @@ int allocateBooks(int arr[], int n, int m) {
 
 int main() {
    int arr[4] = {10, 20, 30, 40};
+   // int arr[4] = {20, 30, 40, 50};
    int n = 4;  // Number of books
    int m = 2;  // Number of students
 
