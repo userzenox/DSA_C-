@@ -1,0 +1,9 @@
+Is Bubble sort stable or unstable?
+
+Bubble sort is a stable sorting algorithm. This means that it maintains the relative order of equal elements in the sorted output. In other words, if two elements have the same value, their order will be the same in the sorted array as it was in the original array.
+
+
+
+Is Bubblesort inplace sort
+Yes, bubble sort is an in-place sorting algorithm. This means it doesn't require any extra space and sorts the array by making swaps within the array itself. The only extra space needed is for temporary variables used for swapping elements.
+
