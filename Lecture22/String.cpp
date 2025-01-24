@@ -28,6 +28,11 @@ bool checkPalindrome(char name[], int n) {
     return true;
 }
 
+
+
+
+
+
 void reverseString(char name[], int n) {
     int s = 0;
     int e = n - 1;
@@ -65,6 +70,9 @@ int main() {
     // Check if the original string is a palindrome
     bool isPalindrome = checkPalindrome(name, string_length);
     cout << "Is the string a palindrome? " << (isPalindrome ? "Yes" : "No") << endl;
+    cout << "Your name is " << name << endl;
+
+ 
 
 
     //convert to lower case 
