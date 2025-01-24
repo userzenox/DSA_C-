@@ -1,12 +1,38 @@
-#include<iostream>
-#include<algorithm>
+#include <iostream>
+#include <algorithm>
 using namespace std;
 
-void reverseString( char name[], int n){
-    int s= 0;
-    int e = n-1;
+char lowercase(char c){
+    char ch;
+    if(c >= 'a' && c <= 'z'){
+        ch = c;
+    } else if(c >= 'A' && c <= 'Z'){
+        ch = c - 'A' + 'a';
+    } 
+    return ch;
+}
 
-    while(s<e){
+bool checkPalindrome(char name[], int n) {
+    int s = 0;
+    int e = n - 1;
+
+    while (s < e) {
+        if (name[s] != name[e]) {
+            return false;
+        }
+        else {
+            s++;
+            e--;
+        }
+    }
+    return true;
+}
+
+void reverseString(char name[], int n) {
+    int s = 0;
+    int e = n - 1;
+
+    while (s < e) {
         swap(name[s], name[e]);
         s++;
         e--;
@@ -28,19 +54,25 @@ int main() {
     cin >> name;
     cout << "Your name is " << name << endl;
     
-
-    // string length
+    // Calculate the length of the string
     int string_length = length(name);
     cout << "The length of your name is " << string_length << endl;
 
-    //reverse a string
-      reverseString(name,string_length);
+    // Reverse the string
+    reverseString(name, string_length);
+    cout << "The reversed string is " << name << endl;
 
-    cout << "Reverse string is - " << name << endl;
+    // Check if the original string is a palindrome
+    bool isPalindrome = checkPalindrome(name, string_length);
+    cout << "Is the string a palindrome? " << (isPalindrome ? "Yes" : "No") << endl;
 
 
+    //convert to lower case 
+    char c;
+      cout << "Enter a charaqcter - ";
+      cin >> c;
+     
+     cout << "its Lower case is - " <<  lowercase(c);
 
-      
-    
     return 0;
 }
