@@ -41,7 +41,7 @@ string wordReverse(string s){
 }
 
 int main(){
-    string s = "hey hello hows going";
+    string s = "hey's hello hows going";
     cout << s;
 
     cout << endl << wordReverse(s) << endl;
