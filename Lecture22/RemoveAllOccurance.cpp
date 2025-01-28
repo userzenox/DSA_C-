@@ -1,5 +1,5 @@
 #include<iostream>
-#include<vector>
+
 using namespace std;
 
 string removeOccurance( string s, string part){
