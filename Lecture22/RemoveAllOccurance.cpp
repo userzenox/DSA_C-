@@ -2,33 +2,24 @@
 #include<vector>
 using namespace std;
 
-char MaxOccurance( string s){
-    int arr[26] = {0};
-    for(int i=0; i<s.length() - 1; i++){
-        char ch = s[i];
-        int number = 0;
-        number = ch - 'a';
-        arr[number]++;
-
+string removeOccurance( string s, string part){
+    while( s.length()!=0 && s.find(part) < s.length()){
+          s.erase(s.find(part), part.length());
     }
-
-    int max = -1, ans = 0;
-    for(int i=0; i<26; i++){
-        if(max < arr[i]){
-            ans = i;
-            max = arr[i];
-            
-        }
-    }
- 
-   char f = 'a' + ans;
-     return f;
+   return s;
 }
 
 int main(){
-    string s = "zey's zello zows zgoing";
+    string s = "daabcbaabcbc";
+    string part= "abc";
     cout << s;
 
-    cout << endl << MaxOccurance(s) << endl;
+    // cout << endl << s.find(part);
+
+    // s.erase(s.find(part), part.length());
+    // cout << endl << s;
+
+    cout << endl << removeOccurance(s,part) << endl;
+   
     return 0;
 }
