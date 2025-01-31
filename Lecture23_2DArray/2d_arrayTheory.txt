@@ -1,0 +1,39 @@
+When passing a 2D array to a function in C++, you need to specify the number of columns in the array's parameter declaration. This is because, in memory, a 2D array is stored in a contiguous block of memory, and the number of columns is used to calculate the correct memory address for accessing each element.
+
+Consider the following example:
+
+cpp
+void printArray(int arr[][3], int rows) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    int arr[2][3] = {{1, 2, 3}, {4, 5, 6}};
+    printArray(arr, 2);
+    return 0;
+}
+In this example, the printArray function takes a 2D array arr and the number of rows rows. The number of columns (3) is specified in the function parameter declaration. This allows the compiler to correctly interpret the memory layout of the 2D array when accessing its elements.
+
+When the function accesses arr[i][j], it calculates the memory address as follows:
+
+Address
+=
+Base Address
++
+(
+𝑖
+×
+Number of Columns
++
+𝑗
+)
+×
+Size of Element
+Without knowing the number of columns, the compiler wouldn't be able to correctly calculate the memory address for each element.
+
+If you want more flexibility with 2D arrays, you can use dynamically allocated arrays or std::vector. Here's an example with std::vector:
