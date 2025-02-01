@@ -5,8 +5,26 @@ using namespace std;
 
 class Solution {
 public:
+
+void reverse(vector<vector<int>>& matrix) {
+    int rows = matrix.size();
+    int c1 = 0;
+    int c2 = matrix[0].size() - 1; // Corrected: Subtract 1 to get the last valid index
+
+    while (c1 < c2) { // Corrected: Use c1 < c2 condition
+        for (int i = 0; i < rows; i++) {
+            swap(matrix[i][c1], matrix[i][c2]);
+        }
+        c1++;
+        c2--;
+    }
+}
+
+
+
     void rotate(vector<vector<int>>& matrix) {
         int n = matrix.size();
+
 
         // Transpose the matrix
         for (int i = 0; i < n; i++) {
@@ -15,10 +33,9 @@ public:
             }
         }
 
-        // Reverse each row
-        for (int i = 0; i < n; i++) {
-            reverse(matrix[i].begin(), matrix[i].end());
-        }
+            reverse(matrix);
+            
+        
     }
 };
 

@@ -37,3 +37,11 @@ Size of Element
 Without knowing the number of columns, the compiler wouldn't be able to correctly calculate the memory address for each element.
 
 If you want more flexibility with 2D arrays, you can use dynamically allocated arrays or std::vector. Here's an example with std::vector:
+
+
+
+
+
+Swap 2-D Array
+
+swap(matrix[i][j], matrix[j][i]);
