@@ -13,8 +13,8 @@ int main(){
 
    int *ptr = &num;
 
-   cout << "value of *ptr" << *ptr << endl;
-   cout << "Address of ptr" << ptr << endl;
+   cout << "value of *ptr - " << *ptr << endl;
+   cout << "Address of ptr - " << ptr << endl;
 
    double n = 4.55;
    double *p = &n;
@@ -69,10 +69,10 @@ int main(){
      // important concept
       int i =3;
       int *t = &i;
-      cout << *t++ << endl;
+      cout << "value of *t++ - "<< *t++ << endl;
       // now the *t is incremented to new memory location and some garbage value is seen
-      cout << *t << endl;
-      cout << ++*t << endl;
+      cout << "value of *t - " << *t << endl;
+      cout << "value of ++*t - "<< ++*t << endl;
 
       cout << " value of t " << t<< endl;
       cout << " value of t " << t+1<< endl;
