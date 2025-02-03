@@ -30,7 +30,7 @@ bool check(int arr[], int n){
 
 int main(){
 
-    int arr[5] = {1,1,1,1,1};
+    int arr[5] = {4,5,1,2,3};
 
     print(arr,5);
 
