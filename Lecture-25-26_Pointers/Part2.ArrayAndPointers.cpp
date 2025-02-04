@@ -38,5 +38,15 @@ cout << sizeof(ptr) << endl;
 cout << sizeof(*ptr) << endl;
 cout << sizeof(&ptr) << endl;
 
+
+//error
+// arr = arr + 1;
+
+
+//but in case of pointer it will not show error
+p = p+1;
+cout << p;
+
+
     return 0;
 }
