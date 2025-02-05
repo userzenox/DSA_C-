@@ -23,27 +23,3 @@
 //          return maxsum;
 //     }
 // };
-
-
-// 1790. Check if One String Swap Can Make Strings Equal
-
-// class Solution {
-// public:
-//     bool areAlmostEqual(string s1, string s2) {
-//         int n = s1.size();
-//         if (s1 == s2) {
-//             return true;
-//         }
-//         for (int i = 0; i < n; i++) {
-//             // Swap ith character with each next character
-//             int j = (i + 1) % n;
-//             swap(s1[i], s1[j]);
-//             if (s1 == s2) {
-//                 return true;
-//             }
-//             // Swap back to revert the change
-//             swap(s1[i], s1[j]);
-//         }
-//         return false;
-//     }
-// };
