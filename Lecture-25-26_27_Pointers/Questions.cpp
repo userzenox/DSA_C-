@@ -33,7 +33,6 @@ int *r = *q;
 ++(*r);
 cout << first << " " << second << endl;
 
-return 0;
 
 
 return 0;
