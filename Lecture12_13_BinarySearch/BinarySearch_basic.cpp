@@ -45,13 +45,17 @@ int main(){
      printArray(arr1, 6);
 
      int index =  binarysearch(arr1,6,22);
-     cout << endl<< index ;
+     cout << endl<< index << endl;
         
 
-       int index2 =  binarysearch(arr2,5,234);
-       cout << endl<< index2 <<endl;
 
      printArray(arr2, 5);
+       int index2 =  binarysearch(arr2,5,234);
+
+     
+       cout << endl<< index2 <<endl;
+
+     
     
     return 0;
 }

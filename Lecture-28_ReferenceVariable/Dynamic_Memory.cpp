@@ -29,11 +29,11 @@ int main(){
      cout << "enter the elements" << endl;
      for (int i=0; i<n;i++){
         cin >> arr[i];
-     }
+      }
 
-     int ans = getSum(arr,n);
+    int ans = getSum(arr,n);
 
-     cout << "answer is " << ans << endl;
+    cout << "answer is " << ans << endl;
 
     return 0;
 }
