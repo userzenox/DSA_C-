@@ -16,8 +16,7 @@ int InsertionSort(int arr[], int size){
         for( j=i-1; j>=0 ;j--){
          if(arr[j] > temp){
                 //shift
-                arr[j+1] = arr[j];
-               
+                arr[j+1] = arr[j];      
          }
          else{
             break;
