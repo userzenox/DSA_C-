@@ -19,7 +19,7 @@ void sort(int arr[], int n){
         }
        }
 
-       return sort(arr,n-1);
+        sort(arr,n-1);
        
 }
 
