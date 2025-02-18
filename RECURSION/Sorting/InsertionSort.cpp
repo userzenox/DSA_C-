@@ -9,14 +9,26 @@ void printArray(int array[], int size){
 }
 
 void sort(int arr[], int n){
-    
-    
-    for(int i =1; i<n; i++){
-         
-    }  
-    
-       
+    if(n<=1){
+        return ;
+    }
+
+    sort(arr,n-1);
+
+    // int last = arr[n-1];
+    // int j = n-2;
+    int last = arr[n - 1];
+    int j = n - 2;
+
+    // Shift elements to the right to make room for the last element
+    while (j >= 0 && arr[j] > last) {
+        arr[j + 1] = arr[j];
+        j--;
+    }
+    arr[j + 1] = last;
 }
+  
+     
 
 int main(){
     
