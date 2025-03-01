@@ -1,38 +1,90 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
+
 using namespace std;
 
 class Solution {
-public:
-   
+  public:
+    vector<string> findPath(vector<vector<int>> &mat) {
+        vector<string> ans;
+        int n = mat.size();  // Determine the size of the matrix
 
-    vector<string> findPath(vector<vector<int>> &m, int n) {
-      
+        if (n == 0 || mat[0][0] == 0) return ans;
+
+        vector<vector<bool>> visited(n, vector<bool>(n, false));
+        string path = "";
+        solve(mat, n, ans, 0, 0, path, visited);
+        return ans;
+    }
+
+  private:
+    void solve(vector<vector<int>>& mat, int n, vector<string>& ans, int x, int y, string& path, vector<vector<bool>>& visited) {
+        if (x == n - 1 && y == n - 1) {  // Destination reached
+            ans.push_back(path);
+            return;
+        }
+
+        visited[x][y] = true;
+
+        // Move Left
+        int newx = x;
+        int newy = y - 1;
+        if (isSafe(newx, newy, n, mat, visited)) {
+            path.push_back('L');
+            solve(mat, n, ans, newx, newy, path, visited);
+            path.pop_back();
+        }
+
+        // Move Right
+        newx = x;
+        newy = y + 1;
+        if (isSafe(newx, newy, n, mat, visited)) {
+            path.push_back('R');
+            solve(mat, n, ans, newx, newy, path, visited);
+            path.pop_back();
+        }
+
+        // Move Up
+        newx = x - 1;
+        newy = y;
+        if (isSafe(newx, newy, n, mat, visited)) {
+            path.push_back('U');
+            solve(mat, n, ans, newx, newy, path, visited);
+            path.pop_back();
+        }
+
+        // Move Down
+        newx = x + 1;
+        newy = y;
+        if (isSafe(newx, newy, n, mat, visited)) {
+            path.push_back('D');
+            solve(mat, n, ans, newx, newy, path, visited);
+            path.pop_back();
+        }
+
+        visited[x][y] = false;
+    }
+
+    bool isSafe(int x, int y, int n, vector<vector<int>>& mat, vector<vector<bool>>& visited) {
+        return (x >= 0 && x < n && y >= 0 && y < n && mat[x][y] == 1 && !visited[x][y]);
     }
 };
 
 int main() {
-    int n;
-    cin >> n;
-    vector<vector<int>> m(n, vector<int>(n, 0));
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            cin >> m[i][j];
-        }
+    vector<vector<int>> mat = {
+        {1, 1, 0, 0},
+        {1, 1, 0, 1},
+        {0, 1, 0, 0},
+        {1, 1, 1, 1}
+    };
+
+    Solution solution;
+    vector<string> result = solution.findPath(mat);
+
+    for (const string& path : result) {
+        cout << path << endl;
     }
 
-    // Debug print to check the input matrix
-    cout << "Input matrix:" << endl;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            cout << m[i][j] << " ";
-        }
-        cout << endl;
-    }
-
-    Solution obj;
-    vector<string> result = obj.findPath(m, n);
-    if (result.size() == 0) cout << -1;
-    else for (string s : result) cout << s << " ";
-    cout << endl;
     return 0;
 }
