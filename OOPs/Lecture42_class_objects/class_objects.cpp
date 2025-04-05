@@ -14,6 +14,11 @@ int main() {
     Empty h2;
     cout << "size : " << sizeof(h1) << endl;
     cout << "size : " << sizeof(h2) << endl;
+    
 
+    cout << "Health is : " << h1.health << endl;
+
+    cout << "Level is : " << h1.level << endl;
+    
     return 0;
 }
