@@ -1,0 +1,99 @@
+// The const keyword is used to make variables or objects read-only after their initialization. It can be used in different contexts:
+
+// 1. Const Variables
+// cpp
+// Copy code
+// const int x = 10;
+// x = 20; // ❌ Error: cannot modify a const variable
+
+
+// 2. Const Function Parameters
+// cpp
+// Copy code
+// void printValue(const int value) {
+//     std::cout << value;
+// }
+// Protects the parameter from being modified inside the function.
+
+// 3. Const Member Functions
+// cpp
+// Copy code
+// class MyClass {
+// public:
+//     int value;
+    
+//     void show() const {     // 👈 This function cannot modify class members
+//         std::cout << value;
+//     }
+// };
+// Declaring a member function as const means it won’t change any member variables (unless they are marked mutable).
+
+// 4. Const Objects
+// cpp
+// Copy code
+// const MyClass obj;
+// obj.show();      // ✅ Okay
+// obj.value = 5;   // ❌ Error: can't modify member variables
+
+
+
+
+// //INitialization list
+
+
+// 📦 What is an Initialization List?
+// It’s used in a constructor to initialize data members directly:
+
+// cpp
+// Copy code
+// class MyClass {
+//     int x;
+//     int y;
+
+// public:
+//     // Constructor with initialization list
+//     MyClass(int a, int b) : x(a), y(b) {
+//         // Constructor body
+//     }
+// };
+// In this example:
+
+// x is initialized with a
+
+// y is initialized with b
+// before the constructor body is executed.
+
+// 🧠 Why Use Initialization Lists?
+// ✅ Required for const and reference members
+// These must be initialized when declared—they can’t be assigned in the constructor body.
+
+// cpp
+// Copy code
+// class MyClass {
+//     const int x;
+// public:
+//     MyClass(int val) : x(val) {} // ✔️ Required, can't assign x in constructor body
+// };
+// ✅ Efficient for initializing complex objects
+// Avoids default construction + reassignment.
+
+// cpp
+// Copy code
+// class MyString {
+//     std::string name;
+// public:
+//     MyString(std::string str) : name(str) {}  // Better than assigning inside constructor
+// };
+// ✅ Base class constructors must be called this way
+
+// cpp
+// Copy code
+// class Base {
+// public:
+//     Base(int x) {}
+// };
+
+// class Derived : public Base {
+// public:
+//     Derived() : Base(5) {} // Must use init list to call Base's constructor
+// };
