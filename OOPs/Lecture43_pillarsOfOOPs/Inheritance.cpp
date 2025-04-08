@@ -28,7 +28,7 @@ class Male: public Human {
         cout << "Male sleeping" << endl;
     }
     int getheight(){
-        return this-> height;
+        return  height;
     }
 };
 
