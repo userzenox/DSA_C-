@@ -18,6 +18,15 @@ class Node {
         this -> next = NULL;
     }
 
+    ~Node(){
+        int val = this -> data;
+        if(next !=NULL){
+            delete next;
+            next = NULL;
+        }
+        cout << "memory deleted for valur "  << endl;
+    }
+
 };
 
 void print(Node* head){
@@ -53,8 +62,7 @@ void insertAtTail(Node* &tail, int d){
     Node* temp = new Node(d);
     tail->next = temp;
     temp->prev = tail ;
-    tail = temp;
-      
+    tail = temp;     
 }
 
 void insertAtPosition(Node* &head, Node* &tail, int d, int position) {
@@ -96,10 +104,11 @@ void deleteNote(int position, Node* &head){
     //deleting first or start node
     if(position == 1){
          Node* temp = head;
-         head = head->next;
+         temp -> next -> prev = NULL;
+         head = temp->next;
          temp -> next = NULL;
-         //memory free start node
          delete temp;
+        
     }
     else{
         //deleting middle or last node
@@ -113,10 +122,11 @@ void deleteNote(int position, Node* &head){
             count++;
         }
 
-        prev -> next = curr -> next;
-        curr -> next = NULL;
-        delete curr;
+       curr -> prev = NULL;
+       prev -> next = curr -> next;
+       curr -> next = NULL;
 
+       delete curr;
     }
 }
 
@@ -141,6 +151,9 @@ int main() {
      print(head);
 
      insertAtPosition(head,tail,64,2);
+     print(head);
+
+     deleteNote(2,head);
      print(head);
 
     return 0;
