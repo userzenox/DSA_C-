@@ -3,7 +3,7 @@ using namespace std;
 
 
 
-//SINGLY 
+ 
 class Node {
 
     public:
@@ -15,17 +15,6 @@ class Node {
         this -> next = NULL; 
     }
 
-
-    //destructor
-    ~Node(){
-        int value = this-> data;
-        //memory free
-        if(this->next != NULL){
-            delete next;
-            this -> next = NULL;
-        }
-        cout << "memory is free for node with data " << value << endl;
-    } 
 };
 
 
@@ -47,16 +36,44 @@ int getcount(Node* head){
     int count=1;
     while(temp->next != head){
           count++;
+          temp = temp -> next;
     }
 
     return count;
 }
 
-void split(Node* head){
-   
-int count = getcount(head);
+void split(Node* head, Node*& head1, Node*& head2) {
+    if (head == NULL) return;
 
+    int count = getcount(head);
+    int half = count / 2+ 1;
+
+    Node* temp = head;
+    int i = 1;
+    while (i < half) {
+        temp = temp->next;
+        i++;
+    }
+
+ 
+    head1 = head;
+    head2 = temp->next;
+
+    Node* tail1 = temp;
+    Node* tail2 = head2;
+
+    // Complete first circular list
+    tail1->next = head1;
+
+    // Traverse to last node of second list
+    while (tail2->next != head) {
+        tail2 = tail2->next;
+    }
+
+    // Complete second circular list
+    tail2->next = head2;
 }
+
 
 
 void insertnode( Node* &tail, int element, int d){
@@ -72,7 +89,7 @@ void insertnode( Node* &tail, int element, int d){
         //non-empty list
         Node* curr = tail;
 
-          // element is the data where you want to insert the new data next
+        
         while(curr-> data != element ){
             curr = curr -> next;               
         }
@@ -84,69 +101,32 @@ void insertnode( Node* &tail, int element, int d){
       
 }
 
-void deleteNode(Node* &tail, int value) {
-
-    // empty List
-    if(tail == NULL) {
-        cout << "List is empty, please check again" << endl;
-        return;
-    }
-    else {
-        // non-empty
-    
-        // assuming that "value" is present in the Linked List
-        Node* prev = tail;
-        Node* curr = prev -> next;
-    
-        while(curr -> data != value) {
-            prev = curr;
-            curr = curr -> next;
-
-        }
-    
-        prev -> next = curr -> next;
-
-         // 1 node linked list
-         if(curr == prev){
-            tail = NULL;
-        }
-
-        // 2 node linked list
-        if(tail == curr ){
-            tail = prev;
-        }
-        curr -> next = NULL;
-        delete curr;
-    }
-}
     
 
 int main() {
-    
-    Node * tail = NULL;
-    
+    Node *tail = NULL;
 
-    insertnode(tail,5,3);
+    insertnode(tail, 5, 3);
+    insertnode(tail, 3, 10);
+    insertnode(tail, 10, 9);
+    insertnode(tail, 3, 11);
+    insertnode(tail, 3, 56);
+
+    cout << "Original list: ";
     print(tail);
 
-    insertnode(tail,3,10);
-    print(tail);
+    cout << "Count is: " << getcount(tail) << endl;
 
-    insertnode(tail,10,9);
-    print(tail);
+    Node* head1 = NULL;
+    Node* head2 = NULL;
 
-    insertnode(tail,3,11 );
-    print(tail);
+    split(tail, head1, head2);
 
-    insertnode(tail,3,56);
-    print(tail);
+    cout << "First half: ";
+    print(head1);
 
-    deleteNode(tail,3);
-    print(tail);
-
-
-    cout << "count is " << getcount(tail) << endl;
-
+    cout << "Second half: ";
+    print(head2);
 
     return 0;
 }
