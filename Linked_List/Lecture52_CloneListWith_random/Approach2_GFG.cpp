@@ -30,10 +30,10 @@ public:
             if (cloneHead == NULL) {
                 cloneHead = newNode;
                 cloneTail = newNode;
-            } else {
+            }else {
                 cloneTail->next = newNode;
                 cloneTail = newNode;
-            }
+            } 
             temp = temp->next;
         }
 
