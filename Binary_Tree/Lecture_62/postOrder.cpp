@@ -47,7 +47,7 @@ int main() {
 
    
 
-    cout << "inorder traversal is" << endl;
+    cout << "postorder traversal is" << endl;
     postorder(root);
    
     return 0;
