@@ -32,7 +32,7 @@ void levelOrdertraversal(node* root){
         if(temp == NULL){
            cout << endl;
            if(!q.empty()){
-              q.push(NULL);
+              q.push(NULL); 
            }
         }  
         else{
